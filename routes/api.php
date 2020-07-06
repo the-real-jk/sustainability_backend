@@ -19,4 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //check user credentials
-Route::post('/login/{username}/{password}', 'UserController@checkUserCredentials');
+Route::post('/login', 'UserController@checkUserCredentials');

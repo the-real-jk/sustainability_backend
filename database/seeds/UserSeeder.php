@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
     {
         $user = new User();
         $user->username = "TheRealBerndBeispiel";
-        $user->password = password_hash("test123", PASSWORD_DEFAULT);
+        $user->password = "test123";
         $user->firstname = "Bernd";
         $user->lastname = "Beispiel";
         $user->email = "bernd.beispiel@gmail.com";
