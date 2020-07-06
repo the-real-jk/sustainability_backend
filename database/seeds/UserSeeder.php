@@ -25,5 +25,6 @@ class UserSeeder extends Seeder
         $user->lastname = "Beispiel";
         $user->email = "bernd.beispiel@gmail.com";
         $user->member_since = "01.01.2020";
+        $user->save();
     }
 }

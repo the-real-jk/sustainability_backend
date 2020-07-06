@@ -21,5 +21,6 @@ class Role_userSeeder extends Seeder
         $role_user = new Role_user();
         $role_user->roles_id = 6;
         $role_user->users_id = 31;
+        $role_user->save();
     }
 }

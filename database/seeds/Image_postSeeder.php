@@ -22,5 +22,6 @@ class Image_postSeeder extends Seeder
         $image_post = new Image_post();
         $image_post->posts_id = 31;
         $image_post->images_id = 1;
+        $image_post->save();
     }
 }

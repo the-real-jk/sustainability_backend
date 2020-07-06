@@ -20,5 +20,6 @@ class RoleSeeder extends Seeder
     {
         $role = new Role();
         $role->rolename = "testuser";
+        $role->save();
     }
 }
