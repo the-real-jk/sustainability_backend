@@ -21,7 +21,5 @@ class UserController extends Controller
         } else {
             return $result = "false";
         };
-
-        // return $savedPassword;
     }
 }
