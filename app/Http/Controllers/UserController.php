@@ -7,6 +7,7 @@ use App\User;
 
 class UserController extends Controller
 {
+    //login validation
     public function checkUserCredentials(Request $request)
     {
         $password = $request['passwd'];
@@ -16,7 +17,7 @@ class UserController extends Controller
         $expectedPassword = User::select('password')->where('username', $username)->get();
         $savedPassword = $expectedPassword['0']['password'];
 
-        if ($userExists != null && $savedPassword == $password) {
+        if ($userExists != null && password_verify($password, $savedPassword)) {
             return $result = "true";
         } else {
             return $result = "false";
