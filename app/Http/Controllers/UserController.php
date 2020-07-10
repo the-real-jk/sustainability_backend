@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Carbon\Carbon;
+
 
 class UserController extends Controller
 {
@@ -21,6 +23,32 @@ class UserController extends Controller
             return $result = "true";
         } else {
             return $result = "false";
+        };
+    }
+
+    public function addNewUser(Request $request)
+    {
+        $username = $request['uname'];
+        $password = $request['passwd'];
+        $firstname = $request['fname'];
+        $lastname = $request['lname'];
+        $email = $request['email'];
+
+        $emailExists = User::where('email', $email)->first();
+        $usernameExists = User::where('username', $username)->first();
+
+        if (!$emailExists && !$usernameExists) {
+            User::insert([
+                'username' => $username,
+                'password' => password_hash($password, PASSWORD_DEFAULT),
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'email' => $email,
+                'member_since' =>  Carbon::now()->timestamp,
+            ]);
+            return "done";
+        } else {
+            return "failed";
         };
     }
 }
