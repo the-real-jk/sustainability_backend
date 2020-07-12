@@ -20,9 +20,9 @@ class UserController extends Controller
         $savedPassword = $expectedPassword['0']['password'];
 
         if ($userExists != null && password_verify($password, $savedPassword)) {
-            return $result = "true";
+            return "true";
         } else {
-            return $result = "false";
+            return  "false";
         };
     }
 
